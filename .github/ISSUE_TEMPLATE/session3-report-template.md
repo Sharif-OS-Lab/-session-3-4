@@ -33,14 +33,15 @@ Student No. of member 2: `[FILL HERE]`
 ## Section 3.3.3
 
 - [ ] Write (in English or Persian) about each file in /proc/(PID) directory:
-    1. `[FILL HERE with description about cmdline]`
-    1. `[FILL HERE with description about environ]`
-    1. `[FILL HERE with description about stat]`
-    1. `[FILL HERE with description about status]`
-    1. `[FILL HERE with description about statm]`
-    1. `[FILL HERE with description about cwd]`
-    1. `[FILL HERE with description about exe]`
-    1. `[FILL HERE with description about root]`
+    1. `[FILL HERE with description about cmdline]` This  read-only  file holds the complete command line for the process, unless the process is a zombie.  In the latter case, there is nothing in this file: that is, a read on this file will return 0 characters.  The command-line arguments appear in this file as a set of strings separated by null bytes ('\0'), with a further null byte  after the last string.
+    1. `[FILL HERE with description about environ]` This file contains the initial environment that was set when the currently executing program was started via execve.The entries are separated by null  bytes  ('\0'), and there may be a null byte at the end.
+    1. `[FILL HERE with description about stat]` Status information about the process lile pid, ppid, state, ... . This is used by ps.
+    1. `[FILL HERE with description about status]` Provides much of the information in /proc/[pid]/stat and /proc/[pid]/statm in a format that's easier for humans to parse like PID, PPID, THREADS, STATE, ... .
+    1. `[FILL HERE with description about statm]` Provides information about memory usage, measured in pages such as size, resident, shared, ... .
+    1. `[FILL HERE with description about cwd]` This is a symbolic link to the current working directory of the process.  To find out the current working directory of process 20, for instance, you can do this:
+     $ cd /proc/20/cwd; /bin/pwd
+    1. `[FILL HERE with description about exe]` Under Linux 2.2 and later, this file is a symbolic link containing the actual pathname of the executed command.  This symbolic link can be dereferenced normally; attempting  to  open it will open the executable.  You can even type /proc/[pid]/exe to run another copy of the same executable that is being run by process [pid]. 
+    1. `[FILL HERE with description about root]` UNIX and Linux support the idea of a per-process root of the filesystem, set by the chroot(2) system call.  This file is a symbolic link that points to the process's root directory, and behaves in the same way as exe, and fd/*.
 
 - [ ] Place your script for shwoing PID of running porcesses and their name here:
     - ![Capture6](https://user-images.githubusercontent.com/45646480/128892249-27b35c9f-777a-47eb-9166-2be6abe764d8.JPG)
